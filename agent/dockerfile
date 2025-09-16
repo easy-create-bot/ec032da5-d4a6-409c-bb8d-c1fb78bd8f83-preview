@@ -1,0 +1,20 @@
+# Use a specific Python version for reproducibility
+FROM python:3.11-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the requirements file to leverage Docker cache
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy your application code
+COPY ./multi_tool_agent .
+
+# Expose the port your agent runs on
+EXPOSE 8000
+
+# The command to run your agent
+CMD ["uvicorn", "agent:socket_app", "--host", "0.0.0.0", "--port", "8000"]
