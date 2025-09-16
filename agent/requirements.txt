@@ -1,0 +1,12 @@
+fastapi
+pydantic
+uvicorn
+python-socketio[asyncio]
+redis
+google-generativeai
+tree-sitter-language-pack
+requests
+python-dotenv
+google-adk 
+anthropic
+openai
